@@ -12,7 +12,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { NO_ERROR } from '@/wallet-ui/solana-shadcn';
+import { NO_ERROR } from './errors';
+
 
 interface DisconnectButtonProps extends React.ComponentProps<typeof Button> {
   wallet: UiWallet;

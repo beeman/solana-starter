@@ -2,7 +2,7 @@
 
 import type { Rpc, RpcSubscriptions, SolanaRpcApiMainnet, SolanaRpcSubscriptionsApi } from '@solana/web3.js';
 import { createSolanaRpc, createSolanaRpcSubscriptions, devnet } from '@solana/web3.js';
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 export const RpcContext = createContext<{
     rpc: Rpc<SolanaRpcApiMainnet>; // Limit the API to only those methods found on Mainnet (ie. not `requestAirdrop`)
@@ -11,3 +11,7 @@ export const RpcContext = createContext<{
     rpc: createSolanaRpc(devnet('https://api.devnet.solana.com')),
     rpcSubscriptions: createSolanaRpcSubscriptions(devnet('wss://api.devnet.solana.com')),
 });
+
+export function useRpc() {
+    return useContext(RpcContext);
+}

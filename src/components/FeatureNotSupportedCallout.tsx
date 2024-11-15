@@ -5,7 +5,7 @@ import React from 'react';
 import type { FallbackProps } from 'react-error-boundary';
 
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { getErrorMessage } from '../errors';
+import { getErrorMessage } from '@/wallet-ui/solana-shadcn';
 import { cn } from '@/lib/utils';
 
 type Props = React.ComponentProps<typeof Alert> & FallbackProps;

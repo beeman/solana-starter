@@ -1,22 +1,15 @@
 "use client";
 
-import { IconExclamationmarkTriangle } from 'symbols-react';
+import { HoverCard, HoverCardContent, HoverCardTrigger, } from "@/components/ui/hover-card"
 import { address } from '@solana/web3.js';
 import type { UiWalletAccount } from '@wallet-standard/react';
-import { useContext, useMemo } from 'react';
+import { useChain, useRpc } from '@/wallet-ui/solana-react';
+import { ErrorDialog } from '@/wallet-ui/solana-shadcn';
+import { useMemo } from 'react';
 import useSWRSubscription from 'swr/subscription';
-
-import { ChainContext } from '../context/ChainContext';
-import { RpcContext } from '../context/RpcContext';
-import { getErrorMessage } from '../errors';
+import { IconExclamationmarkTriangle } from 'symbols-react';
+import { getErrorMessage } from '@/wallet-ui/solana-shadcn';
 import { balanceSubscribe } from '../functions/balance';
-import { ErrorDialog } from './ErrorDialog';
-
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
 
 type Props = Readonly<{
     account: UiWalletAccount;
@@ -25,8 +18,8 @@ type Props = Readonly<{
 const seenErrors = new WeakSet();
 
 export function Balance({ account }: Props) {
-    const { chain } = useContext(ChainContext);
-    const { rpc, rpcSubscriptions } = useContext(RpcContext);
+    const { chain } = useChain();
+    const { rpc, rpcSubscriptions } = useRpc();
     const subscribe = useMemo(() => balanceSubscribe.bind(null, rpc, rpcSubscriptions), [rpc, rpcSubscriptions]);
     const { data: lamports, error } = useSWRSubscription({ address: address(account.address), chain }, subscribe);
 

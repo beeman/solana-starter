@@ -8,9 +8,8 @@ import { Balance } from '@/components/Balance'
 import { FeatureNotSupportedCallout } from '@/components/FeatureNotSupportedCallout'
 import { SolanaSignAndSendTransactionFeaturePanel } from '@/components/SolanaSignAndSendTransactionFeaturePanel'
 import { SolanaSignMessageFeaturePanel } from '@/components/SolanaSignMessageFeaturePanel'
-import { WalletAccountIcon } from '@/components/WalletAccountIcon'
-import { ChainContext } from '@/context/ChainContext'
-import { SelectedWalletAccountContext } from '@/context/SelectedWalletAccountContext'
+import { WalletAccountIcon } from '@/wallet-ui/solana-shadcn/wallet-account-icon'
+import { useChain, useSelectedWalletAccount } from '@/wallet-ui/solana-react'
 
 import {
   Card,
@@ -20,11 +19,10 @@ import {
   CardDescription
 } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { useContext } from 'react'
 
 export default function DashboardPage() {
-    const { chain } = useContext(ChainContext)
-    const [selectedWalletAccount] = useContext(SelectedWalletAccountContext)
+    const { chain } = useChain()
+    const [selectedWalletAccount] = useSelectedWalletAccount()
     const errorBoundaryResetKeys = [
         chain,
         selectedWalletAccount && getUiWalletAccountStorageKey(selectedWalletAccount),

@@ -1,6 +1,5 @@
 "use client";
 
-import { useContext } from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,10 +8,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ChainContext } from '../context/ChainContext';
+import { useChain } from '@/wallet-ui/solana-react';
 
 export function ChainSelector() {
-  const { displayName: currentChainName, chain, setChain } = useContext(ChainContext);
+  const { displayName: currentChainName, chain, setChain } = useChain()
   
   const currentChainBadge = (
     <Button variant="outline">

@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChainSelector } from './ChainSelector';
-import { ConnectWalletMenu } from './ConnectWalletMenu';
+import { ChainSelector, ConnectWalletMenu } from '@/wallet-ui/solana-shadcn';
 import { SignInMenu } from './SignInMenu';
 import { ModeToggle } from '@/components/ui/theme-toggle';
 import GithubStarsButton from './GithubStarsButton';

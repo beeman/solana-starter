@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { getErrorMessage } from "../errors";
+import { getErrorMessage } from "./errors";
 
 type Props = Readonly<{
   error: unknown;

@@ -3,7 +3,7 @@
 import { ChainContextProvider, RpcContextProvider, SelectedWalletAccountContextProvider } from '@/wallet-ui/solana-react'
 import { ReactNode } from 'react';
 
-export function Providers({ children }: { children: ReactNode }) {
+export function SolanaProviders({ children }: { children: ReactNode }) {
   return (
     <ChainContextProvider>
       <SelectedWalletAccountContextProvider>

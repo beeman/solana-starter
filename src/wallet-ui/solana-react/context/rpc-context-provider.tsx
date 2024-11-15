@@ -1,17 +1,17 @@
 "use client";
 
 import { createSolanaRpc, createSolanaRpcSubscriptions } from '@solana/web3.js';
-import { ReactNode, useContext, useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 
-import { ChainContext } from './ChainContext';
-import { RpcContext } from './RpcContext';
+import { useChain } from './chain-context';
+import { RpcContext } from './rpc-context';
 
 type Props = Readonly<{
     children: ReactNode;
 }>;
 
 export function RpcContextProvider({ children }: Props) {
-    const { solanaRpcSubscriptionsUrl, solanaRpcUrl } = useContext(ChainContext);
+    const { solanaRpcSubscriptionsUrl, solanaRpcUrl } = useChain();
     return (
         <RpcContext.Provider
             value={useMemo(

@@ -2,7 +2,7 @@
 
 import type { ClusterUrl } from '@solana/web3.js';
 import { devnet } from '@solana/web3.js';
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 export type ChainContext = Readonly<{
     chain: `solana:${string}`;
@@ -22,3 +22,7 @@ export const DEFAULT_CHAIN_CONFIG = Object.freeze({
 });
 
 export const ChainContext = createContext<ChainContext>(DEFAULT_CHAIN_CONFIG);
+
+export function useChain() {
+    return useContext(ChainContext);
+}

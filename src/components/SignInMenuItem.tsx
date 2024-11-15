@@ -5,7 +5,7 @@ import type { UiWallet, UiWalletAccount } from '@wallet-standard/react';
 import React, { useCallback, useState } from 'react';
 
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
-import { WalletMenuItemContent } from './WalletMenuItemContent';
+import { WalletMenuItemContent } from '@/wallet-ui/solana-shadcn';
 
 type Props = Readonly<{
     onError(err: unknown): void;

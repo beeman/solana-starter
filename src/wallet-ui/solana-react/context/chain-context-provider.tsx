@@ -3,7 +3,7 @@
 import { mainnet, testnet } from '@solana/web3.js';
 import { useMemo } from 'react';
 import { useLocalStorage } from '@/hooks/use-local-storage';
-import { ChainContext, DEFAULT_CHAIN_CONFIG } from './ChainContext';
+import { ChainContext, DEFAULT_CHAIN_CONFIG } from './chain-context';
 
 const STORAGE_KEY = 'solana-example-react-app:selected-chain';
 

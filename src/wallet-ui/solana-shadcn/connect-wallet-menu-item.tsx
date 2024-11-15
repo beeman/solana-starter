@@ -1,11 +1,10 @@
 "use client";
 
-import { useCallback, useContext } from 'react';
+import { useCallback } from 'react';
 import type { UiWallet, UiWalletAccount } from '@wallet-standard/react';
 import { uiWalletAccountsAreSame, useConnect, useDisconnect } from '@wallet-standard/react';
-
-import { SelectedWalletAccountContext } from '../context/SelectedWalletAccountContext';
-import { WalletMenuItemContent } from './WalletMenuItemContent';
+import { useSelectedWalletAccount } from '@/wallet-ui/solana-react';
+import { WalletMenuItemContent } from './wallet-menu-item-content';
 import {
     DropdownMenuSub,
     DropdownMenuSubTrigger,
@@ -29,7 +28,7 @@ export function ConnectWalletMenuItem({ onAccountSelect, onDisconnect, onError, 
     const [isDisconnecting, disconnect] = useDisconnect(wallet);
     const isPending = isConnecting || isDisconnecting;
     const isConnected = wallet.accounts.length > 0;
-    const [selectedWalletAccount] = useContext(SelectedWalletAccountContext);
+    const [selectedWalletAccount] = useSelectedWalletAccount()
 
     const handleConnectClick = useCallback(async () => {
         try {

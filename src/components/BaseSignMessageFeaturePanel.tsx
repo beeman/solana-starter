@@ -5,8 +5,7 @@ import { getBase64Decoder } from '@solana/web3.js';
 import type { ReadonlyUint8Array } from '@wallet-standard/core';
 import type { SyntheticEvent } from 'react';
 import { useRef, useState } from 'react';
-
-import { ErrorDialog } from '../components/ErrorDialog';
+import { ErrorDialog } from '@/wallet-ui/solana-shadcn';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 

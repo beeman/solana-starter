@@ -10,7 +10,7 @@ import {
 } from '@wallet-standard/react';
 import { useLocalStorage } from '@/hooks/use-local-storage';
 import { useEffect, useMemo, type Dispatch, type SetStateAction } from 'react';
-import { SelectedWalletAccountContext, SelectedWalletAccountState } from './SelectedWalletAccountContext';
+import { SelectedWalletAccountContext, SelectedWalletAccountState } from './selected-wallet-account-context';
 
 const STORAGE_KEY = 'solana-wallet-standard-example-react:selected-wallet-and-address';
 

@@ -4,8 +4,8 @@ import { IconExclamationmarkTriangle } from 'symbols-react';
 import type { UiWallet } from '@wallet-standard/react';
 import { useState } from 'react';
 
-import { ErrorDialog } from './ErrorDialog';
-import { WalletMenuItemContent } from './WalletMenuItemContent';
+import { ErrorDialog } from './error-dialog';
+import { WalletMenuItemContent } from './wallet-menu-item-content';
 import {
     DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
@@ -33,7 +33,7 @@ export function UnconnectableWalletMenuItem({ error, wallet }: Props) {
 
             {dialogIsOpen && (
                 <ErrorDialog 
-                    error={error} 
+                    error={error}
                     onClose={() => setDialogIsOpen(false)} 
                     title="Unconnectable wallet" 
                 />

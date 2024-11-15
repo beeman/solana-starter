@@ -1,7 +1,7 @@
 "use client";
 
 import type { UiWalletAccount } from '@wallet-standard/react';
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 export type SelectedWalletAccountState = UiWalletAccount | undefined;
 
@@ -16,3 +16,7 @@ export const SelectedWalletAccountContext = createContext<
         /* empty */
     },
 ]);
+
+export function useSelectedWalletAccount() {
+    return useContext(SelectedWalletAccountContext);
+}

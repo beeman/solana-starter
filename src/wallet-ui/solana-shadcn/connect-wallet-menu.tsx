@@ -1,17 +1,17 @@
 "use client";
 
+import { getErrorMessage } from "@/wallet-ui/solana-shadcn/errors";
 import { ExclamationTriangleIcon } from '@radix-ui/react-icons';
 import { StandardConnect, StandardDisconnect } from '@wallet-standard/core';
 import type { UiWallet } from '@wallet-standard/react';
 import { uiWalletAccountBelongsToUiWallet, useWallets } from '@wallet-standard/react';
-import { useContext, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-
-import { SelectedWalletAccountContext } from '../context/SelectedWalletAccountContext';
-import { ConnectWalletMenuItem } from './ConnectWalletMenuItem';
-import { ErrorDialog } from './ErrorDialog';
-import { UnconnectableWalletMenuItem } from './UnconnectableWalletMenuItem';
-import { WalletAccountIcon } from './WalletAccountIcon';
+import { useSelectedWalletAccount } from '@/wallet-ui/solana-react';
+import { ConnectWalletMenuItem } from './connect-wallet-menu-item';
+import { ErrorDialog } from './error-dialog';
+import { UnconnectableWalletMenuItem } from './unconnectable-wallet-menu-item';
+import { WalletAccountIcon } from './wallet-account-icon';
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
@@ -29,7 +29,7 @@ interface Props {
 export function ConnectWalletMenu({ children }: Props) {
     const { current: NO_ERROR } = useRef(Symbol());
     const wallets = useWallets();
-    const [selectedWalletAccount, setSelectedWalletAccount] = useContext(SelectedWalletAccountContext);
+    const [selectedWalletAccount, setSelectedWalletAccount] = useSelectedWalletAccount();
     const [error, setError] = useState(NO_ERROR);
     const [open, setOpen] = useState(false);
 

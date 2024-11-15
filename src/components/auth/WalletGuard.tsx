@@ -1,12 +1,12 @@
 "use client"
 
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { SelectedWalletAccountContext } from '@/context/SelectedWalletAccountContext'
+import { useSelectedWalletAccount } from '@/wallet-ui/solana-react'
 
 export function WalletGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter()
-  const [selectedWalletAccount] = useContext(SelectedWalletAccountContext)
+  const [selectedWalletAccount] = useSelectedWalletAccount()
 
   useEffect(() => {
     if (!selectedWalletAccount) {
